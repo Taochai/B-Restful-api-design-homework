@@ -3,7 +3,6 @@ package com.thoughtworks.capability.gtb.restfulapidesign.controller;
 
 import com.thoughtworks.capability.gtb.restfulapidesign.entity.Student;
 import com.thoughtworks.capability.gtb.restfulapidesign.service.serviceImpl.StudentServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -51,7 +50,12 @@ public class StudentController {
                               @RequestParam(name = "name", required = false) String name,
                               @RequestParam(name = "gender", required = false) String gender,
                               @RequestParam(name = "note", required = false) String note) {
-        return this.studentService.updateInfo(id,name,gender,note);
+        return this.studentService.updateInfo(id, name, gender, note);
 
+    }
+
+    @GetMapping(path = "group")
+    public List<Integer> group() {
+        return this.studentService.group();
     }
 }
