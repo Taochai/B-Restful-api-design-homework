@@ -14,4 +14,6 @@ public interface StudentService {
     List<Student> getAll(String gender);
 
     Student getById(String id);
+
+    Student updateInfo(String id, String name, String gender, String note);
 }

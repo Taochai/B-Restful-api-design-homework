@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static java.util.Objects.isNull;
+
 @Service
 public class StudentServiceImpl implements StudentService {
 
@@ -53,5 +55,16 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student getById(String id) {
         return this.students.get(id);
+    }
+
+    @Override
+    public Student updateInfo(String id, String name, String gender, String note) {
+        Student updatedStudent = this.students.get(id);
+
+        if(!isNull(name)) updatedStudent.setName(name);
+        if(!isNull(gender)) updatedStudent.setGender(gender);
+        if(!isNull(note)) updatedStudent.setNote(note);
+
+        return updatedStudent;
     }
 }
