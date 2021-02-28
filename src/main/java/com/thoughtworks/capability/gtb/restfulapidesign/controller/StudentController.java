@@ -3,6 +3,7 @@ package com.thoughtworks.capability.gtb.restfulapidesign.controller;
 
 import com.thoughtworks.capability.gtb.restfulapidesign.entity.Student;
 import com.thoughtworks.capability.gtb.restfulapidesign.service.serviceImpl.StudentServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,12 +15,9 @@ import static java.util.Objects.isNull;
 @RequestMapping(path = "/students")
 public class StudentController {
 
-
+    @Autowired
     StudentServiceImpl studentService;
 
-    public StudentController() {
-        this.studentService = new StudentServiceImpl();
-    }
 
     @PostMapping(path = "")
     public Student create(@RequestBody Student student) {
