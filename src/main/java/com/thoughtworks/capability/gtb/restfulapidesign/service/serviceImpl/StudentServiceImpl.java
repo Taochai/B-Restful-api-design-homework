@@ -18,6 +18,9 @@ public class StudentServiceImpl implements StudentService {
 
     public StudentServiceImpl() {
         this.students = new HashMap<>();
+        this.students.put("1",new Student("1","student1","male",""));
+        this.students.put("2",new Student("2","student2","male",""));
+        this.students.put("3",new Student("3","student3","female",""));
     }
 
     @Override
@@ -47,4 +50,8 @@ public class StudentServiceImpl implements StudentService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public Student getById(String id) {
+        return this.students.get(id);
+    }
 }

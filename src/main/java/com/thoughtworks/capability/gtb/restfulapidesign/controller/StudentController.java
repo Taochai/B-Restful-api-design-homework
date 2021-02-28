@@ -41,4 +41,9 @@ public class StudentController {
         return this.studentService.getAll(gender);
     }
 
+    @GetMapping(path = "/{id}")
+    public Student getById(@PathVariable String id) {
+        return this.studentService.getById(id);
+    }
+
 }

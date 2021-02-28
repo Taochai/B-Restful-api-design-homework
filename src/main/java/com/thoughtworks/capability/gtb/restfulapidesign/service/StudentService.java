@@ -12,4 +12,6 @@ public interface StudentService {
     List<Student> getAll();
 
     List<Student> getAll(String gender);
+
+    Student getById(String id);
 }
