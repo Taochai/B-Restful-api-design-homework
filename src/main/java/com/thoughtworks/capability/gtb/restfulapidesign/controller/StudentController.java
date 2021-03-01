@@ -3,18 +3,19 @@ package com.thoughtworks.capability.gtb.restfulapidesign.controller;
 
 import com.thoughtworks.capability.gtb.restfulapidesign.entity.Student;
 import com.thoughtworks.capability.gtb.restfulapidesign.service.serviceImpl.StudentServiceImpl;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static java.util.Objects.isNull;
-
 
 @RestController
+@AllArgsConstructor
 @RequestMapping(path = "/students")
 public class StudentController {
 
-    private StudentServiceImpl studentService;
+
+    private final StudentServiceImpl studentService;
 
     @PostMapping(path = "")
     public Student create(@RequestBody Student student) {
@@ -29,9 +30,6 @@ public class StudentController {
 
     @GetMapping(path = "")
     public List<Student> getAll(@RequestParam(required = false) String gender) {
-        if (isNull(gender)) {
-            return this.studentService.getAll();
-        }
         return this.studentService.getAll(gender);
     }
 

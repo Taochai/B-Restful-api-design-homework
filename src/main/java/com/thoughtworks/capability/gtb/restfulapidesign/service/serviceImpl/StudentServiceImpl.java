@@ -16,7 +16,6 @@ import static java.util.Objects.isNull;
 @Service
 public class StudentServiceImpl implements StudentService {
 
-
     Map<String, Student> students;
     Map<Long, List<Student>> groups;
     static final int TOTAL_GROUP_NUMBER = 6;
@@ -47,12 +46,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> getAll() {
-        return new ArrayList<>(this.students.values());
-    }
-
-    @Override
     public List<Student> getAll(String gender) {
+        if (isNull(gender)) {
+            return new ArrayList<>(this.students.values());
+        }
+
         return this.students.values().stream()
                 .filter(student -> student.getGender().equals(gender))
                 .collect(Collectors.toList());

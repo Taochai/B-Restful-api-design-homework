@@ -9,7 +9,6 @@ public interface StudentService {
 
     boolean deleteById(String id);
 
-    List<Student> getAll();
 
     List<Student> getAll(String gender);
 

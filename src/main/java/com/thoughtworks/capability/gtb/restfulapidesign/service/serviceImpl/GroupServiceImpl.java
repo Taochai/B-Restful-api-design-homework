@@ -35,7 +35,6 @@ public class GroupServiceImpl implements GroupService {
                 .filter(group -> group.getId() == id)
                 .findAny();
         groupFounded.ifPresent(group -> group.setName(name));
-        System.out.println(this.groupList.toString());
     }
 
     @Override
