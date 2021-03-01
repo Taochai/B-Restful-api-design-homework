@@ -41,11 +41,9 @@ public class StudentController {
     }
 
     @PutMapping(path = "/{id}")
-    public Student updateInfo(@PathVariable String id,
-                              @RequestParam(name = "name", required = false) String name,
-                              @RequestParam(name = "gender", required = false) String gender,
-                              @RequestParam(name = "note", required = false) String note) {
-        return this.studentService.updateInfo(id, name, gender, note);
+    public Student updateInfo(@PathVariable String id, @RequestBody Student student) {
+
+        return this.studentService.updateInfo(id, student.getName(), student.getGender(), student.getNote());
 
     }
 
@@ -53,4 +51,5 @@ public class StudentController {
     public List<Integer> group() {
         return this.studentService.group();
     }
+
 }
